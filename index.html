@@ -1,76 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ThinkSmart</title>
+<title>ThinkSmart Challenge</title>
 
 <style>
-
 body{
-font-family: Arial;
-background-color:#f4f6fb;
+font-family: Arial, sans-serif;
+background: linear-gradient(120deg,#ff9a9e,#fad0c4);
 text-align:center;
 padding:40px;
 }
 
+h1{
+color:#333;
+}
+
+.card{
+background:white;
+border-radius:18px;
+padding:25px;
+margin-top:25px;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
 button{
-background:#4a6cf7;
+background:#6a5acd;
 color:white;
-padding:12px 20px;
 border:none;
-border-radius:6px;
+padding:12px 20px;
+border-radius:25px;
 font-size:16px;
 cursor:pointer;
+margin-top:15px;
 }
 
-#content{
-margin-top:30px;
-font-size:18px;
+button:hover{
+background:#483d8b;
 }
 
+.answer{
+margin-top:15px;
+font-weight:bold;
+color:#444;
+}
 </style>
 </head>
 
 <body>
 
-<h1>ThinkSmart</h1>
-<p>Discover common thinking biases and learn how your mind works.</p>
+<h1>🧠 ThinkSmart Challenge</h1>
+<p>Test your thinking and uncover hidden biases.</p>
 
-<button onclick="showBias()">Discover a Thinking Bias</button>
+<div class="card">
+<h2 id="question">If a $100 jacket is discounted to $60, is it a great deal?</h2>
 
-<div id="content"></div>
+<button onclick="showAnswer()">Reveal the Thinking Bias</button>
+
+<p class="answer" id="answer"></p>
+</div>
+
+<button onclick="newChallenge()">Try Another Challenge</button>
 
 <script>
 
-const biases = [
+let challenges = [
 
 {
-title:"Confirmation Bias",
-text:"We tend to believe information that supports what we already think."
+q:"If a $100 jacket is discounted to $60, is it automatically a good deal?",
+a:"Anchoring Bias: The original price makes the new price seem cheaper."
 },
 
 {
-title:"Anchoring Bias",
-text:"People rely too heavily on the first piece of information they see."
+q:"If everyone online says a phone is the best, should you buy it?",
+a:"Bandwagon Effect: People follow what the crowd believes."
 },
 
 {
-title:"Bandwagon Effect",
-text:"People believe something because many others believe it."
+q:"If you believe coffee is unhealthy, do you mostly read articles proving it?",
+a:"Confirmation Bias: We prefer information that supports our beliefs."
 },
 
 {
-title:"Halo Effect",
-text:"One positive trait makes us assume everything about someone is good."
+q:"If a celebrity promotes a product, do you assume it must be good?",
+a:"Halo Effect: One positive trait makes us assume everything else is good."
 }
 
-];
+]
 
-function showBias(){
+let current = 0
 
-const random = biases[Math.floor(Math.random()*biases.length)];
+function showAnswer(){
+document.getElementById("answer").innerText = challenges[current].a
+}
 
-document.getElementById("content").innerHTML =
-"<h2>"+random.title+"</h2><p>"+random.text+"</p>";
+function newChallenge(){
+
+current = Math.floor(Math.random()*challenges.length)
+
+document.getElementById("question").innerText = challenges[current].q
+document.getElementById("answer").innerText = ""
 
 }
 
