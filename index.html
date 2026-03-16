@@ -100,6 +100,19 @@ current = Math.floor(Math.random()*challenges.length)
 document.getElementById("question").innerText = challenges[current].q
 document.getElementById("answer").innerText = ""
 
+let colors = [
+"#ff9a9e",
+"#a18cd1",
+"#fbc2eb",
+"#84fab0",
+"#f6d365"
+]
+
+let randomColor = colors[Math.floor(Math.random()*colors.length)]
+
+document.body.style.background = randomColor
+
+}
 }
 
 </script>
