@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ThinkSmart</title>
+
+<style>
+
+body{
+font-family: Arial;
+background-color:#f4f6fb;
+text-align:center;
+padding:40px;
+}
+
+button{
+background:#4a6cf7;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+#content{
+margin-top:30px;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>ThinkSmart</h1>
+<p>Discover common thinking biases and learn how your mind works.</p>
+
+<button onclick="showBias()">Discover a Thinking Bias</button>
+
+<div id="content"></div>
+
+<script>
+
+const biases = [
+
+{
+title:"Confirmation Bias",
+text:"We tend to believe information that supports what we already think."
+},
+
+{
+title:"Anchoring Bias",
+text:"People rely too heavily on the first piece of information they see."
+},
+
+{
+title:"Bandwagon Effect",
+text:"People believe something because many others believe it."
+},
+
+{
+title:"Halo Effect",
+text:"One positive trait makes us assume everything about someone is good."
+}
+
+];
+
+function showBias(){
+
+const random = biases[Math.floor(Math.random()*biases.length)];
+
+document.getElementById("content").innerHTML =
+"<h2>"+random.title+"</h2><p>"+random.text+"</p>";
+
+}
+
+</script>
+
+</body>
+</html>
