@@ -64,58 +64,38 @@ color:#444;
 <script>
 
 let challenges = [
-
 {
 q:"If a $100 jacket is discounted to $60, is it automatically a good deal?",
 a:"Anchoring Bias: The original price makes the new price seem cheaper."
 },
-
 {
 q:"If everyone online says a phone is the best, should you buy it?",
 a:"Bandwagon Effect: People follow what the crowd believes."
 },
-
 {
 q:"If you believe coffee is unhealthy, do you mostly read articles proving it?",
 a:"Confirmation Bias: We prefer information that supports our beliefs."
 },
-
 {
 q:"If a celebrity promotes a product, do you assume it must be good?",
 a:"Halo Effect: One positive trait makes us assume everything else is good."
 }
+];
 
-]
-
-let current = 0
+let current = 0;
 
 function showAnswer(){
-document.getElementById("answer").innerText = challenges[current].a
+document.getElementById("answer").innerText = challenges[current].a;
 }
 
 function newChallenge(){
-
-current = Math.floor(Math.random()*challenges.length)
-
-document.getElementById("question").innerText = challenges[current].q
-document.getElementById("answer").innerText = ""
-
-let colors = [
-"#ff9a9e",
-"#a18cd1",
-"#fbc2eb",
-"#84fab0",
-"#f6d365"
-]
-
-let randomColor = colors[Math.floor(Math.random()*colors.length)]
-
-document.body.style.background color = randomColor
-
-}
+current = Math.floor(Math.random()*challenges.length);
+document.getElementById("question").innerText = challenges[current].q;
+document.getElementById("answer").innerText = "";
 }
 
 </script>
+
 
 </body>
 </html>
